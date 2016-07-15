@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "RYPerson.h"
+#import "RYCar.h"
 
 @interface ViewController ()
 
@@ -16,7 +18,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+#warning 这里使用类里写单例方法的方式创建单例对象
+    RYPerson *person1 = [RYPerson sharedInstance];
+    RYPerson *person2 = [RYPerson sharedInstance];
+    RYPerson *person3 = [RYPerson sharedInstance];
+    
+    NSLog(@"%@ %@ %@", person1, person2, person3);
+    
+#warning 这里使用宏里写单例方法的方式创建
+    RYCar *car1 = [RYCar sharedInstance];
+    RYCar *car2 = [RYCar sharedInstance];
+    RYCar *car3 = [RYCar sharedInstance];
+    
+    NSLog(@"%@ %@ %@", car1, car2, car3);
 }
 
 - (void)didReceiveMemoryWarning {
